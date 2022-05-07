@@ -46,7 +46,11 @@ imagepng($text_background);//以png格式输出到浏览器
 # 6. 释放图像(销毁)
 imagedestroy($text_background);//释放内存
 
-
+/**
+ * 获取该区域的对角线长度
+ * @param array $size
+ * @return int
+ */
 function getDiagonalByCoordinate(array $size):int{
 
     $x = $size[2]-$size[6];
@@ -81,6 +85,5 @@ function getRandCoordinate(int $w,int $h ,array $remove_zone,int $ele_width=20,i
     # 则y坐标的取值范围为(0,$remove_zone[7]-$ele_height>0 ?($remove_zone[7]-$ele_height):0) 或者 (size[1],$h-$ele_height)
     # 确保 元素图不会超出背景图的范围
     #2）否则不与文字重叠  y 的取值范围就可以随意（0,$h-$ele_height）
-
     return [rand(0,$w),rand(0,$h)];
 }
